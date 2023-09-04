@@ -1,0 +1,7 @@
+# Custom Dictionary Words
+ampm
+authstate
+customcard
+iscomplete
+notopaque
+todos

@@ -3,8 +3,8 @@ import { AppState } from "../AppState.js"
 import { TodoModel } from "../models/TodoModel.js"
 export class TodoListService {
 
-    async getTodoList(id) {
-        const res = await api.get(`/api/todos/${id}`)
+    async getTodoList(clientId) {
+        const res = await api.get(`/api/todos/:${clientId}`)
         console.log(res.data)
         AppState.todoList = res.data.map(t => new TodoModel(t))
     }
@@ -15,7 +15,7 @@ export class TodoListService {
     }
 
     async deleteTodo(id) {
-        await api.delete(`/api/todos/:${id}`)
+        await api.delete(`/api/todos/:id`)
         AppState.todoList = AppState.todoList.filter(t => t.id != id)
     }
     async toggleTodo(todoId) {
