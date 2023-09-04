@@ -1,0 +1,35 @@
+/* BASIC STYLES HERE */
+body {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.blurry {
+    border-radius: 35px;
+    background-color: #3f3e3e29;
+}
+
+#notopaque {
+
+    backdrop-filter: blur(8px);
+}
+
+.image-header {
+    cursor: progress;
+}
+
+#custom-input:not(:checked)~.custom-control-label::before {
+    background-color: rgba(225, 207, 207, 0.449);
+    border-color: firebrick;
+}
+
+#custom-input:checked~.custom-control-label::before {
+    background-color: rgba(102, 102, 102, 0.651);
+    border-color: blueviolet;
+
+}
+
+.customcard {
+    background-color: rgba(53, 49, 49, 0.791)
+}
