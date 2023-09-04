@@ -5,3 +5,5 @@ customcard
 iscomplete
 notopaque
 todos
+williemac
+yourname

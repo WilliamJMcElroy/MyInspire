@@ -1,7 +1,7 @@
 import { AppState } from "../AppState.js"
 import { TodoListService, todoListService } from "../services/TodoListService.js"
 import { Pop } from "../utils/Pop.js"
-import { clientId } from "../env.js"
+
 function _drawTodoList() {
     let content = ''
     AppState.todoList.forEach(t => content += t.TodoListTemplate)
@@ -16,7 +16,7 @@ export class TodoListController {
 
     constructor() {
         AppState.on('todoList', _drawTodoList)
-        this.getTodoList()
+        AppState.on('account', this.getTodoList)
     }
 
     async toggleTodoList(todoListId) {
@@ -31,7 +31,7 @@ export class TodoListController {
 
     async getTodoList() {
         try {
-            await todoListService.getTodoList(clientId)
+            await todoListService.getTodoList()
         } catch (error) {
             Pop.error(error)
             console.error('getTodoList', error)
