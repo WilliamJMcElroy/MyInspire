@@ -3,6 +3,7 @@ import { generateId } from "../utils/GenerateId.js"
 export class TodoModel {
     constructor(data) {
         this.id = data.id || generateId()
+        this.creatorid = data.creatorid
         this.description = data.description || ''
         this.isComplete = data.completed
     }

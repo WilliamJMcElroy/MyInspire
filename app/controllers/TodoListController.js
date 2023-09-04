@@ -1,4 +1,5 @@
 import { AppState } from "../AppState.js"
+import { api } from "../services/AxiosService.js"
 import { TodoListService, todoListService } from "../services/TodoListService.js"
 import { Pop } from "../utils/Pop.js"
 
@@ -26,37 +27,41 @@ export class TodoListController {
             Pop.error(error)
             console.error('toggleTodoList', error)
         }
-        // TODO flush out
     }
 
-    async getTodoList() {
+    async getTodoList(id) {
         try {
             await todoListService.getTodoList()
         } catch (error) {
             Pop.error(error)
             console.error('getTodoList', error)
         }
-        // TODO flush out
+
     }
+
     async addTodo() {
+        debugger
         try {
             window.event.preventDefault()
-            let form = window.event.target
-            let todoData = {
-                description: form // fill out
+            const form = window.event.target
+            const newForm = {
+                // @ts-ignore
+                description: form.description.value
             }
+            await todoListService.addTodo(newForm)
         } catch (error) {
             console.error('addTodo in todolistcontroller', error)
             Pop.error(error)
         }
     }
-    // flush out delete
     async deleteTodo(id) {
         try {
-
-            await todoListService
+            const yes = await Pop.confirm('Delete this Todo?')
+            if (!yes) { return }
+            await todoListService.deleteTodo(id)
         } catch (error) {
-
+            console.error('on delete from controller', error)
+            Pop.error(error)
         }
     }
 

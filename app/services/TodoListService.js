@@ -1,11 +1,11 @@
 import { api } from "./AxiosService.js"
 import { AppState } from "../AppState.js"
 import { TodoModel } from "../models/TodoModel.js"
-import { Account } from "../models/Account.js"
+
 export class TodoListService {
 
     async getTodoList() {
-        const res = await api.get(`/api/todos`) //needs work
+        const res = await api.get(`/api/todos`)
         console.log(res.data)
         AppState.todoList = res.data.map(t => new TodoModel(t))
     }
