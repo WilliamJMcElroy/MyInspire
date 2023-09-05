@@ -27,7 +27,7 @@
       </section>
     </div>
     <section class="row">
-      <div class="col-4 elevation-1 offset-8 card customcard">
+      <div class="col-3 elevation-1 offset-8 card customcard">
         <div class="card-body">
           <h3 class="text-white-50 text-center">Todos List:</h3>
           <p id="iscomplete" class="text-white-50 text-center"></p>
@@ -35,9 +35,10 @@
         </div>
         <form onsubmit="app.TodoListController.addTodo()">
           <section class="row">
-            <div class="col-6 offset 1">
-              <input type="text" class="form-control" placeholder="Todo - fill in" name="description" id="description">
-              <button type="submit" class="btn">Add</button>
+            <div class="col-6">
+              <textarea name="description" id="description" placeholder="fill in" class="form-control"></textarea>
+              <!-- <input type="text" class="form-control" placeholder="fill in" name="description" id="description"> -->
+              <button type="submit" class="btn text-white-50">Add</button>
 
             </div>
       </div>

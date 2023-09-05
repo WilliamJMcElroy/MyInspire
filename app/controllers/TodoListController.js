@@ -39,12 +39,14 @@ export class TodoListController {
 
     }
 
+    
+
     async addTodo() {
         try {
             window.event.preventDefault()
-            //@ts-ignore
-            let todoData = window.event.target.description.value
-            await todoListService.addTodo(todoData)
+            let textAreaElem = document.querySelector('textarea')
+            let description = textAreaElem
+            await todoListService.addTodo(description)
         } catch (error) {
             console.error('addTodo in todolistcontroller', error)
             Pop.error(error)
