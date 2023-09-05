@@ -10,7 +10,7 @@ export class TodoListService {
         AppState.todoList = res.data.map(t => new TodoModel(t))
     }
     async addTodo(todo) {
-        let res = await api.post('/api/williemac2/todos', todo) // needs work
+        let res = await api.post('/api/todos', todo)
         let newTodo = new TodoModel(res.data)
         AppState.todoList = [...AppState.todoList, newTodo]
     }

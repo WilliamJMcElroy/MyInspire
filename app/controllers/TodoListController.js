@@ -40,15 +40,11 @@ export class TodoListController {
     }
 
     async addTodo() {
-        debugger
         try {
             window.event.preventDefault()
-            const form = window.event.target
-            const newForm = {
-                // @ts-ignore
-                description: form.description.value
-            }
-            await todoListService.addTodo(newForm)
+            //@ts-ignore
+            let todoData = window.event.target.description.value
+            await todoListService.addTodo(todoData)
         } catch (error) {
             console.error('addTodo in todolistcontroller', error)
             Pop.error(error)
